@@ -24,10 +24,6 @@ ENV DISPLAY :0
 
 USER root
 
-# Additional prerequisite libraries
-#RUN $VENV/bin/pip install imagen param cycler
-
-
 ENV NEST_VER=2.18.0
 ENV NEST=v$NEST_VER
 
@@ -72,14 +68,13 @@ RUN cd $NEST; \
     make; make install
 
 
-RUN $VENV/bin/pip install lazyarray PyNN
 RUN PATH=$PATH:$VENV/bin
 
 WORKDIR /home/docker/
 RUN echo "source $VENV/bin/activate" >> .bashrc
 
 
-RUN $VENV/bin/pip install psutil matplotlib==2.1.1 sciunit interval param==1.5.1 cycler
+RUN $VENV/bin/pip install lazyarray pynn=0.9.5 psutil scipy==1.0 numpy==1.14 cython==0.29 pandas==0.21 statsmodels==0.10.0 matplotlib==2.1.1 sciunit==0.2.2.1 interval param==1.5.1 cycler
 
 RUN apt-get autoremove -y && \
     apt-get clean
@@ -96,7 +91,6 @@ RUN python setup.py install
 
 WORKDIR $HOME/mozaik
 RUN git clone https://github.com/antolikjan/mozaik-contrib
-#RUN git clone --branch=merged_JA_DG https://github.com/dguarino/mozaik
 
 WORKDIR $HOME/mozaik
 RUN git clone https://github.com/RCagnol/V1sciunit
