@@ -25,7 +25,7 @@ class ExcitatoryAverageFiringRate(Test):
     score_type = scores.StudentsTestScore
     """specifies the type of score returned by the test"""
 
-    description = "Test if the sheet average firing rate is lesser than a predifined value"
+    description = "Test  if the sheet average firing rate is lesser than a predifined value"
 
     def __init__(self,
                  observation = None,
