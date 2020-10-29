@@ -48,6 +48,7 @@ class StudentsTestScore(Score):
 
     @property
     def summary(self):
+        print("A")
         """Summarize the performance of a model on a test."""
         return "=== Model %s achieved score %s on test '%s'. ===" % \
                (str(self.model), str(self), self.test.name)
