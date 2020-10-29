@@ -13,7 +13,7 @@ class StudentsTestScore(Score):
 
     @classmethod
     def compute(cls, observation, prediction):
-        """Compute a t statistic and a p_value from an observation and a prediction."""
+        """Compute a t-statistic and a p_value from an observation and a prediction."""
         
 	p_mean = prediction['mean']  # Use the prediction's mean.
        	p_std = prediction['std']
@@ -48,6 +48,7 @@ class StudentsTestScore(Score):
 
     @property
     def summary(self):
+        print("A")
         """Summarize the performance of a model on a test."""
         return "=== Model %s achieved score %s on test '%s'. ===" % \
                (str(self.model), str(self), self.test.name)
